@@ -1,0 +1,37 @@
+<!-- Eula Bengco - VueJS 3 Fundamentals -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Shopping List App</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+  <div id="shopping-list">
+    <!-- double moustache - templating syntax - bind data to the DOM -->
+    <!-- Limitation: evaluate only one expression, cant declare variable, and evaluate if statement. can do ternary -->
+    <!-- <h1>{{header.toLocaleUpperCase()}}</h1> -->
+    <!-- <h1>{{header ? header: 'Welcome!'}}</h1> -->
+    <!-- can use OR (||) operator -->
+    <h1>{{header || 'Welcome!'}}</h1>
+    <!-- reactivity system use v-model directive to bind header to the input. text and input stays in sync at all times. Advantage of VueJS - two-way data-binding -->
+    <input v-model="header">
+  </div>
+  <script src="https://unpkg.com/vue@3"></script>
+  <script>
+    //can use in console!
+    const shoppingList = Vue.createApp({
+      //data method to the config object
+      data() {
+        return {
+          header: "Vue is ready to party! Woo hoo~!" //return an object 
+        }
+      }
+    })
+      .mount('#shopping-list') //mount to the shopping-list
+  </script>
+</body>
+
+</html>
